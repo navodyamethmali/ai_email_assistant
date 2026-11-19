@@ -1,0 +1,129 @@
+/* Application Layout */
+.app-container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Ambient subtle background glow */
+.ambient-glow-light {
+  background-color: #f8fafc;
+  background-image: 
+    radial-gradient(ellipse 80% 50% at 50% -10%, rgba(59, 130, 246, 0.08), transparent 70%),
+    radial-gradient(circle at 100% 100%, rgba(241, 245, 249, 0.5), transparent 50%);
+}
+
+.ambient-glow-dark {
+  background-color: #0b0f19;
+  background-image: 
+    radial-gradient(ellipse 80% 50% at 50% -10%, rgba(59, 130, 246, 0.12), transparent 70%),
+    radial-gradient(circle at 100% 100%, rgba(30, 41, 59, 0.2), transparent 50%);
+}
+
+/* Smooth transition for theme switches */
+.theme-transition {
+  transition: background-color 0.25s cubic-bezier(0.4, 0, 0.2, 1),
+              color 0.25s cubic-bezier(0.4, 0, 0.2, 1),
+              border-color 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Keyboard badge design: tactile physical key aesthetic */
+.key-badge {
+  font-family: 'JetBrains Mono', monospace;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.72rem;
+  padding: 1px 6px;
+  border-radius: 4px;
+  line-height: 1.4;
+  font-weight: 500;
+  vertical-align: middle;
+}
+
+.key-badge-light {
+  background: #f1f5f9;
+  border: 1px solid #cbd5e1;
+  color: #475569;
+  box-shadow: 0 1px 0 #94a3b8;
+}
+
+.key-badge-dark {
+  background: #1e293b;
+  border: 1px solid #334155;
+  color: #94a3b8;
+  box-shadow: 0 1px 0 #0f172a;
+}
+
+/* Modern card container with subtle depth */
+.craft-card {
+  position: relative;
+  transition: box-shadow 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+}
+
+/* Tone option button */
+.tone-card {
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.18s cubic-bezier(0.4, 0, 0.2, 1);
+  user-select: none;
+}
+
+.tone-card:hover {
+  transform: translateY(-1px);
+}
+
+.tone-card:active {
+  transform: translateY(0);
+}
+
+/* Animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-in-up {
+  animation: fadeInUp 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes pulseDot {
+  0% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.5);
+  }
+  70% {
+    transform: scale(1);
+    box-shadow: 0 0 0 6px rgba(34, 197, 94, 0);
+  }
+  100% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgba(34, 197, 94, 0);
+  }
+}
+
+.status-dot-active {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background-color: #22c55e;
+  display: inline-block;
+  animation: pulseDot 2s infinite;
+}
+
+/* Textarea focus glow */
+.custom-textarea .MuiOutlinedInput-root {
+  transition: box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.custom-textarea .MuiOutlinedInput-root.Mui-focused {
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.15);
+}
